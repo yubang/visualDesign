@@ -1,0 +1,2 @@
+# visualDesign
+基于jquery，html5和bootstrap的可视化设计封装库
