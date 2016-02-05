@@ -151,7 +151,7 @@ function DesignLib(){
     // 创建可拖拽组件
     this.create_able_drap_dom = function(dom_title, dom_html, target_dom_id){
         var id = this_obj.get_a_new_id();
-        var html = '<div id="'+id+'" class="panel panel-default">';
+        var html = '<div id="'+id+'" class="panel panel-default" drag_drop_sign="temp_panel_div">';
         html += '<div drag_drop_sign="title" class="panel-heading">';
         html += '<h3 align="right" class="panel-title">'+dom_title+'&nbsp;<a drag_drop_sign="delete" class="label label-danger">删除</a> &nbsp;<a drag_drop_sign="edit" class="label label-primary">编辑</a></h3>';
         html += '</div>';
@@ -174,7 +174,16 @@ function DesignLib(){
         $("#designLib_temp_code_div div[drag_drop_sign='title']").remove();
         $("#designLib_temp_code_div div[draggable='true']").removeAttr("draggable");
         $("#designLib_temp_code_div div[contenteditable='true']").removeAttr("contenteditable");
+        $('div[drag_drop_sign="temp_panel_div"]').removeAttr("class");
         return $("#designLib_temp_code_div").html();
+    }
+
+    // 刷新组件
+    this.handle_new_html = function(){
+        $("div[drag_drop_sign='temp_panel_div']").each(function(){
+            var id = $(this).attr("id");
+            this_obj.handle_able_drap_dom(id);
+        });
     }
 
 }

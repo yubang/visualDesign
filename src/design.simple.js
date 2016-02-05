@@ -114,3 +114,9 @@
     $("#drag_and_drop_div_target_code_div_text").html(get_a_drag_and_drop_div_html());
     $("#drag_and_drop_div_target_code_div").modal();
  }
+
+ // 设置html代码
+ function set_a_drag_and_drop_div_html(html){
+    $("#drag_and_drop_companent_draw").html(html);
+    designLib.handle_new_html();
+ }
